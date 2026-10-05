@@ -1,9 +1,10 @@
-// BÔNUS: rodapé com props e valor padrão.
-// Se o App não mandar "ano", vale 2026.
+// Aula 3 (E2) + Aula 5 (bônus): agora recebe props, e "ano" tem valor padrão.
 function Rodape({ cidade, ano = 2026 }) {
   return (
     <footer className="rodape">
-      TechFood — Sabor & Saber · {cidade} · {ano}
+      <p>
+        TechFood — Sabor & Saber · {cidade} · {ano}
+      </p>
     </footer>
   );
 }

@@ -1,16 +1,18 @@
 import CardPrato from "./CardPrato";
 
-// Uma seção do cardápio (ex.: "Sobremesa"). Recebe o título e a LISTA de pratos por props.
+// Aula 5: uma seção do cardápio. Recebe o título e uma LISTA de pratos por props.
 function SecaoCardapio({ titulo, pratos, onAdicionar }) {
   return (
     <section className="secao">
-      <h2>{titulo}</h2>
+      <h2 className="titulo-secao">{titulo}</h2>
       <div className="cardapio">
         {pratos.map((prato) => (
           <CardPrato
             key={prato.id}
             nome={prato.nome}
             preco={prato.preco}
+            categoria={prato.categoria}
+            descricao={prato.descricao}
             vegetariano={prato.vegetariano}
             destaque={prato.destaque}
             disponivel={prato.disponivel}

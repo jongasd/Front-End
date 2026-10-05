@@ -112,19 +112,22 @@
   font-size: 0.85rem;
 }
 
-/* ---------- Aula 5: seções, selos e condicionais ---------- */
+/* Aula 3 (D2) */
+.contador {
+  text-align: center;
+  color: #777;
+  margin: 0 0 16px;
+}
+
+/* ---------- Aula 5: selos, destaque, indisponível e seções ---------- */
 .secao {
   margin-bottom: 32px;
 }
-.secao h2 {
+.titulo-secao {
   font-size: 1.3rem;
   margin: 0 0 12px;
   padding-bottom: 6px;
   border-bottom: 2px solid #e4002b;
-}
-.card-prato h3 {
-  font-size: 1.15rem;
-  margin: 0;
 }
 .card-prato.destaque {
   border: 2px solid #e4002b;
@@ -133,7 +136,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  min-height: 22px;
 }
 .selo {
   font-size: 0.72rem;
@@ -164,11 +166,17 @@
   color: #777;
   cursor: not-allowed;
 }
-.vazio {
-  color: #888;
+
+/* ---------- Aula 5: exercícios (já pronto, não precisa mexer) ---------- */
+.selo-picante {
+  background: #fff1e6;
+  color: #b23c00;
 }
 .preco-antigo {
   color: #999;
   font-weight: 400;
   margin-right: 6px;
+}
+.vazio {
+  color: #888;
 }

@@ -1,12 +1,24 @@
 import { useState } from "react";
 import Selo from "./Selo";
 
-// vegetariano, destaque e disponivel têm VALOR PADRÃO: se o pai não mandar, valem false / false / true.
-// TODO (E2): receba a prop picante (valor padrão false).
-// TODO (E3): receba a prop precoPromocional.
-function CardPrato({ nome, preco, vegetariano = false, destaque = false, disponivel = true, onAdicionar }) {
-  // (igual à aula 4) cada card guarda a sua própria quantidade
+// Aula 4 (E3): a quantidade não passa de 10
+const QUANTIDADE_MAXIMA = 10;
+
+function CardPrato({
+  nome,
+  preco,
+  categoria,
+  descricao,
+  vegetariano = false, // Aula 5: valor padrão
+  destaque = false, // Aula 5: valor padrão
+  disponivel = true, // Aula 5: valor padrão
+  // TODO (E2): receba a prop picante (valor padrão false)
+  // TODO (E3): receba a prop precoPromocional
+  onAdicionar,
+}) {
   const [quantidade, setQuantidade] = useState(1);
+  const [curtidas, setCurtidas] = useState(0); // Aula 4 (E2)
+  const [mostrarDescricao, setMostrarDescricao] = useState(false); // Aula 4 (E4)
 
   const precoFormatado = preco.toLocaleString("pt-BR", {
     style: "currency",
@@ -20,20 +32,28 @@ function CardPrato({ nome, preco, vegetariano = false, destaque = false, disponi
   }
 
   function aumentar() {
-    setQuantidade(quantidade + 1);
+    if (quantidade < QUANTIDADE_MAXIMA) {
+      setQuantidade(quantidade + 1);
+    }
   }
 
   function adicionar() {
-    onAdicionar(quantidade);
+    // TODO (E3): se tiver precoPromocional, o total do pedido deve usar o preço promocional
+    onAdicionar(quantidade, preco);
     setQuantidade(1);
   }
 
   return (
-    // Ternário no className: prato em destaque ganha a classe "destaque" (borda vermelha)
+    // Aula 5: ternário na classe — prato em destaque ganha borda vermelha
     <article className={destaque ? "card-prato destaque" : "card-prato"}>
-      <h3>{nome}</h3>
+      <span className="categoria">{categoria}</span>
+      {/* Aula 3 (D1): emoji só na sobremesa */}
+      <h2>
+        {categoria === "Sobremesa" ? "🍰 " : ""}
+        {nome}
+      </h2>
 
-      {/* && = só mostra o selo SE a condição for verdadeira */}
+      {/* Aula 5: && — o selo só aparece se a condição for verdadeira */}
       <div className="selos">
         {destaque && <Selo texto="Destaque" tipo="destaque" />}
         {vegetariano && <Selo texto="Vegetariano" tipo="veg" />}
@@ -45,7 +65,17 @@ function CardPrato({ nome, preco, vegetariano = false, destaque = false, disponi
           (<s className="preco-antigo">) e o promocional; senão, só o preço normal. */}
       <p className="preco">{precoFormatado}</p>
 
-      {/* Ternário = mostra UMA coisa OU outra: com estoque, os botões; sem estoque, o aviso */}
+      {/* Aula 3 (E3) prop descricao + Aula 4 (E4) mostrar/esconder */}
+      {mostrarDescricao && <p className="descricao">{descricao}</p>}
+      <button
+        type="button"
+        className="btn-secundario"
+        onClick={() => setMostrarDescricao(!mostrarDescricao)}
+      >
+        {mostrarDescricao ? "Esconder descrição" : "Ver descrição"}
+      </button>
+
+      {/* Aula 5: ternário — disponível mostra os botões; esgotado mostra "Indisponível" */}
       {disponivel ? (
         <>
           <div className="quantidade">
@@ -67,6 +97,9 @@ function CardPrato({ nome, preco, vegetariano = false, destaque = false, disponi
           Indisponível
         </button>
       )}
+      <button type="button" className="btn-secundario" onClick={() => setCurtidas(curtidas + 1)}>
+        ❤️ Curtir ({curtidas})
+      </button>
     </article>
   );
 }

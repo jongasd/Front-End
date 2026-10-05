@@ -1,6 +1,5 @@
-// Componente pequeno e reutilizável: uma "etiqueta" com texto.
-// O mesmo componente serve para Destaque, Vegetariano e Esgotado: só mudam as props.
-// tipo = "padrao" é o VALOR PADRÃO: se o pai não mandar tipo, vale "padrao".
+// Aula 5: componente pequeno e reutilizável — o mesmo serve para Destaque, Vegetariano e Esgotado.
+// tipo = "padrao" é o VALOR PADRÃO: vale quando o pai não manda a prop tipo.
 function Selo({ texto, tipo = "padrao" }) {
   return <span className={`selo selo-${tipo}`}>{texto}</span>;
 }
