@@ -118,3 +118,51 @@
   color: #777;
   margin: 0 0 16px;
 }
+
+/* ---------- Aula 5: selos, destaque, indisponível e seções ---------- */
+.secao {
+  margin-bottom: 32px;
+}
+.titulo-secao {
+  font-size: 1.3rem;
+  margin: 0 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e4002b;
+}
+.card-prato.destaque {
+  border: 2px solid #e4002b;
+}
+.selos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.selo {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #f1f1f4;
+  color: #333;
+}
+.selo-destaque {
+  background: #e4002b;
+  color: #fff;
+}
+.selo-veg {
+  background: #e9f5ec;
+  color: #1b5e20;
+}
+.selo-esgotado {
+  background: #1a1a1a;
+  color: #fff;
+}
+.btn-indisponivel {
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 700;
+  background: #ddd;
+  color: #777;
+  cursor: not-allowed;
+}

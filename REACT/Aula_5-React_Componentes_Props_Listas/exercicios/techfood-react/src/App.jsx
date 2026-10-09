@@ -1,9 +1,12 @@
 import { useState } from "react";
 import Header from "./components/Header";
-import CardPrato from "./components/CardPrato";
+import SecaoCardapio from "./components/SecaoCardapio";
 import Rodape from "./components/Rodape";
 import { cardapio } from "./data/cardapio";
 import "./App.css";
+
+// Aula 5: nomes das categorias, na ordem em que aparecem na tela
+const categorias = ["Prato principal", "Sobremesa", "Bebida"];
 
 function App() {
   // Aula 4 (bônus): total de itens do pedido — mora no App porque Header e CardPrato usam
@@ -27,20 +30,17 @@ function App() {
       <Header totalItens={totalItens} totalValor={totalValor} onLimpar={limparPedido} />
       {/* Aula 3 (D2): contador de pratos */}
       <p className="contador">Cardápio com {cardapio.length} itens</p>
-      <section className="cardapio">
-        {cardapio.map((prato) => (
-          <CardPrato
-            key={prato.id}
-            nome={prato.nome}
-            preco={prato.preco}
-            categoria={prato.categoria}
-            descricao={prato.descricao}
-            onAdicionar={adicionarAoPedido}
-          />
-        ))}
-      </section>
+      {/* Aula 5: uma seção para cada categoria, só com os pratos dela (.filter) */}
+      {categorias.map((categoria) => (
+        <SecaoCardapio
+          key={categoria}
+          titulo={categoria}
+          pratos={cardapio.filter((prato) => prato.categoria === categoria)}
+          onAdicionar={adicionarAoPedido}
+        />
+      ))}
       {/* Aula 3 (E2) */}
-      <Rodape />
+      <Rodape cidade="Itu/SP" />
     </main>
   );
 }
