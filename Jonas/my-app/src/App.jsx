@@ -1,16 +1,18 @@
-import Header from "./components/header";
+import { useState } from "react";
+import Header from "./components/Header";
 import CardPrato from "./components/CardPrato";
-
-const cardapio = [
-  { id: 1, nome: "feijoada", preco: 42.9, categoria: "Prato principal" },
-  { id: 2, nome: "moqueca", preco: 49.9, categoria: "Prato principal" },
-  { id: 3, nome: "Pudim", preco: 15.0, categoria: "Sobremesas" },
-];
-
+import { cardapio } from "./data/cardapio";
+import "./App.css";
 function App() {
+  // O total fica no App porque DOIS componentes precisam dele:
+  // o Header mostra e o CardPrato altera. O estado mora no "pai comum".
+  const [totalItens, setTotalItens] = useState(0);
+  function adicionarAoPedido(quantidade) {
+    setTotalItens(totalItens + quantidade);
+  }
   return (
     <main className="app">
-      <Header />
+      <Header totalItens={totalItens} />
       <section className="cardapio">
         {cardapio.map((prato) => (
           <CardPrato
@@ -18,11 +20,11 @@ function App() {
             nome={prato.nome}
             preco={prato.preco}
             categoria={prato.categoria}
+            onAdicionar={adicionarAoPedido}
           />
         ))}
       </section>
     </main>
   );
 }
-
-export default App
+export default App;
