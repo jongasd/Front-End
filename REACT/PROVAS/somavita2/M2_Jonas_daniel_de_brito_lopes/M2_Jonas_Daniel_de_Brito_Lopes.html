@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MS2 — Versão B | StepUp Tênis</title>
+    <!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  MICROSOMATIVA 2 — Programação Front-End                        ║
+  ║  Versão B · Individual · 70 minutos                             ║
+  ╠══════════════════════════════════════════════════════════════════╣
+  ║  ⚠️  COLOQUE SEU NOME COMPLETO ABAIXO ANTES DE COMEÇAR          ║
+  ║  Aluno: Jonas Daniel de Brito Lopes                             ║
+  ║  ⚠️  SEM NOME = SEM NOTA                                        ║
+  ╠══════════════════════════════════════════════════════════════════╣
+  ║  Data:  28/08/2026          Turma: DETS-I-2A-26CT/S              ║
+  ╠══════════════════════════════════════════════════════════════════╣
+  ║  REGRAS                                                         ║
+  ║  · Pode usar os PDFs de Referência Bootstrap e Tailwind         ║
+  ║  · Sem consulta a colegas · Sem IA                              ║
+  ║  · Entrega: este arquivo .html salvo com seu nome               ║
+  ║    Nomear: MS2_[NomeSobrenome].html                             ║
+  ╠══════════════════════════════════════════════════════════════════╣
+  ║  PONTUAÇÃO                                                      ║
+  ║  Parte 1 — Bootstrap ........................ 50 pts            ║
+  ║    T1. Grid responsivo ...................... 20 pts            ║
+  ║    T2. Cor, espaçamento e tipografia ........ 10 pts           ║
+  ║    T3. Componente Card ...................... 10 pts            ║
+  ║    T4. Componente Navbar .................... 10 pts           ║
+  ║  Parte 2 — Tailwind ......................... 50 pts           ║
+  ║    T5. Grid responsivo ...................... 20 pts            ║
+  ║    T6. Cor, espaçamento e tipografia ........ 10 pts           ║
+  ║    T7. Visual coerente e identidade azul .... 20 pts           ║
+  ╚══════════════════════════════════════════════════════════════════╝
+  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .card-item {
+        transition: transform 0.2s ease;
+        cursor: pointer;
+      }
+      .card-item:hover {
+        transform: translateY(-4px);
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  PARTE 1 — BOOTSTRAP (50 pts)                                    │
+  │  Tema: StepUp — Loja de Tênis · Identidade: azul (primary)      │
+  └──────────────────────────────────────────────────────────────────┘
+-->
+
+    <!--
+  [T4 — 10 pts] NAVBAR
+  Substitua o header abaixo por uma barra de navegação Bootstrap.
+  A barra deve:
+  — ter fundo azul escuro com texto e ícones claros
+  — exibir o nome "👟 StepUp" em negrito no lado esquerdo
+  — exibir os links Produtos, Marcas e Contato alinhados à direita
+  — em telas menores que desktop, virar um menu hambúrguer funcional
+-->
+    <header>
+      <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="#">👟 StepUp — Loja de Tênis</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#produtos">Produtos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#marcas">Marcas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contato">Contato</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!--
+  [T2 — parcial] HERO
+  — fundo escuro (dark) com texto branco
+  — respiro generoso acima e abaixo
+  — todo o texto centralizado
+  — o link "Ver Coleção" como botão grande com fundo amarelo (warning)
+    e texto escuro
+-->
+      <section
+        class="bg-dark text-white flex justify-content-center align-items-center"
+      >
+        <h1 class>Cada passo conta. Escolha o seu.</h1>
+        <p>Os melhores tênis das maiores marcas do mundo em um só lugar.</p>
+        <a href="#produtos" class="btn btn-lg btn-warning text">Ver Coleção</a>
+      </section>
+
+      <!--
+  [T1 — 20 pts] GRID DE PRODUTOS
+  Organize os artigos em uma grade responsiva:
+  — em celular: 1 por linha
+  — em tablet: 2 por linha
+  — em desktop: 3 por linha
+
+  [T3 — 10 pts] COMPONENTE CARD
+  Cada artigo deve usar o componente Card do Bootstrap com:
+  — área de conteúdo com nome do tênis em negrito, marca em cinza
+    discreto e preço em destaque azul e negrito
+  — rodapé com botão "Comprar" que ocupa toda a largura com fundo azul
+  — todos os cards com a mesma altura
+-->
+      <main class="container">
+        <div class="row g-3">
+          <section id="produtos" class="">
+            <h2>Nossa Coleção</h2>
+            <article class="flex row justify-content-center">
+              <article class="card h-100 col-12 col-md-6 col-lg-4">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Air Max 90</h5>
+                  <p class="card-text text-muted text-light">Nike</p>
+                  <p class="card-text fs-5 fw-bold text-primary">R$ 899,90</p>
+                  <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-primary w-100">Comprar</button>
+                  </div>
+                </div>
+              </article>
+              <article class="card h-100 col-12 col-md-6 col-lg-4">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Ultraboost 23</h5>
+                  <p class="card-text text-muted text-light">Adidas</p>
+                  <p class="card-text fs-5 fw-bold text-primary">R$ 1.199,90</p>
+                  <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-primary w-100">Comprar</button>
+                  </div>
+                </div>
+              </article>
+              <article class="card h-100 col-12 col-md-6 col-lg-4">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Classic Leather</h5>
+                  <p class="card-text text-muted text-light">Rebook</p>
+                  <p class="card-text fs-5 fw-bold text-primary">R$ 549,90</p>
+                  <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-primary w-100">Comprar</button>
+                  </div>
+                </div>
+              </article>
+              <article class="card h-100 col-12 col-md-6 col-lg-4">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Old Skool</h5>
+                  <p class="card-text text-muted text-light">Vans</p>
+                  <p class="card-text fs-5 fw-bold text-primary">R$ 449,90</p>
+                  <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-primary w-100">Comprar</button>
+                  </div>
+                </div>
+              </article>
+              <article class="card h-100 col-12 col-md-6 col-lg-4">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Chuck Taylor</h5>
+                  <p class="card-text text-muted text-light">Converse</p>
+                  <p class="card-text fs-5 fw-bold text-primary">R$ 399,90</p>
+                  <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-primary w-100">Comprar</button>
+                  </div>
+                </div>
+              </article>
+              <article class="card h-100 col-12 col-md-6 col-lg-4">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Suede Classic</h5>
+                  <p class="card-text text-muted text-light">Puma</p>
+                  <p class="card-text fs-5 fw-bold text-primary">R$ 479,90</p>
+                  <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-primary w-100">Comprar</button>
+                  </div>
+                </div>
+              </article>
+            </article>
+          </section>
+        </div>
+      </main>
+      <!--
+  [T2 — parcial] MARCAS
+  — fundo cinza muito claro com respiro generoso acima e abaixo
+  — título centralizado e em negrito com espaço abaixo
+-->
+      <section id="marcas" class="bg-light mt-4 mb-4">
+        <h2 class="flex justify-content-center align-items-center fw-bold">
+          Nossas Marcas
+        </h2>
+        <div>
+          <div>
+            <p>✔️</p>
+            <h6>Nike</h6>
+            <p>Performance e estilo</p>
+          </div>
+          <div>
+            <p>✔️</p>
+            <h6>Adidas</h6>
+            <p>Tradição e inovação</p>
+          </div>
+          <div>
+            <p>✔️</p>
+            <h6>Vans</h6>
+            <p>Skate e streetwear</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--
+  [T2 — parcial] RODAPÉ
+  — fundo azul escuro, texto branco e centralizado
+  — respiro interno confortável
+-->
+    <footer class="bg-primary text-light flex justify-content-center p-3">
+      <p>© 2026 StepUp Loja de Tênis · Todos os direitos reservados</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<section
+  id="parte-tailwind"
+  style="margin-top: 60px; padding-top: 40px; border-top: 4px solid #0ea5e9"
+>
+  <!--
+  PARTE 2 — TAILWIND CSS (50 pts)
+  Mesma StepUp, desta vez com classes Tailwind. Sem Bootstrap aqui.
+-->
+
+  <!--
+  [T6 — parcial] NAVBAR TAILWIND
+  — fundo azul escuro, texto branco
+  — nome à esquerda, links à direita com espaço entre eles
+  — links mudam de cor ao passar o mouse
+-->
+  <nav>
+    <nav class=" bg-blue-800 text-white flex justify-space-between">
+      <div>
+        <a href="#">👟 StepUp — Loja de Tênis</a>
+          <ul>
+            <li >
+              <a class="hover:bg-red-700" href="#produtos">Produtos</a>
+            </li>
+            <li>
+              <a class="hover:bg-red-700" href="#marcas">Marcas</a>
+            </li>
+            <li>
+              <a class="hover:bg-red-700" href="#contato">Contato</a>
+            </li>
+          </ul>
+      </div>
+    </nav>
+  </nav>
+
+  <!--
+  [T6 — parcial] HERO TAILWIND
+  — fundo escuro, texto branco
+  — título grande, centralizado e em negrito
+  — botão amarelo com texto escuro, cantos arredondados
+-->
+  <section class="bg-blue-900 text-white">
+    <h1 class="text-lg flex justify-center font-bold">Cada passo conta. Escolha o seu.</h1>
+    <p>Os melhores tênis das maiores marcas do mundo.</p>
+    <button class="bg-yellow-400 text-dark rounded">Ver Coleção</button>
+  </section>
+
+  <!--
+  [T5 — 20 pts] GRID TAILWIND
+  — celular: 1 por linha · tablet: 2 · desktop: 3
+  A grade fica no PAI, filhos entram direto.
+
+  [T7 — parcial] CARDS TAILWIND
+  — fundo branco, cantos arredondados, sombra suave
+  — nome em negrito, marca em cinza, preço em azul e negrito
+  — botão "Comprar" azul empurrado para o fundo do card
+  — car+d sobe levemente ao passar o mouse
+-->
+  <main>
+    <h2>Nossa Coleção</h2>
+    <div id="grid-tailwind">
+      <div>
+        <h5>Air Max 90</h5>
+        <p>Nike</p>
+        <p>R$ 899,90</p>
+        <button>Comprar</button>
+      </div>
+      <div>
+        <h5>Ultraboost 23</h5>
+        <p>Adidas</p>
+        <p>R$ 1.199,90</p>
+        <button>Comprar</button>
+      </div>
+      <div>
+        <h5>Classic Leather</h5>
+        <p>Reebok</p>
+        <p>R$ 549,90</p>
+        <button>Comprar</button>
+      </div>
+      <div>
+        <h5>Old Skool</h5>
+        <p>Vans</p>
+        <p>R$ 449,90</p>
+        <button>Comprar</button>
+      </div>
+      <div>
+        <h5>Chuck Taylor</h5>
+        <p>Converse</p>
+        <p>R$ 399,90</p>
+        <button>Comprar</button>
+      </div>
+      <div>
+        <h5>Suede Classic</h5>
+        <p>Puma</p>
+        <p>R$ 479,90</p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </main>
+
+  <!--
+  [T7 — parcial] RODAPÉ TAILWIND
+  — fundo azul escuro, texto branco e centralizado
+-->
+  <footer>
+    <p>© 2026 StepUp Loja de Tênis · Feito com Tailwind CSS</p>
+  </footer>
+</section>
