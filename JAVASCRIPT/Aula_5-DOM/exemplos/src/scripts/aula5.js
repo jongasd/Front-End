@@ -46,7 +46,7 @@ const horaAtual = new Date().getHours();
 saudacao.textContent = (horaAtual < 12) ? "Bom dia! Veja nossas massas." : "Boa tarde! Que tal uma pizza?";
 
 
-// 6. MANIPULAÇÃO DE ATRIBUTOS (Slide 11)
+// 6. MANIPULAÇÃO DE ATRIBUTOS (Slide 11)+
 // Existem duas formas de alterar atributos como src, alt, title e href.
 
 // VERSÃO STANDARD (Tradicional):
@@ -57,12 +57,11 @@ imgLasanha.setAttribute('title', 'Nossa famosa massa artesanal');
 imgLasanha.src = "src/images/lasanha-destaque.jpg"; // Altera o caminho da imagem
 imgLasanha.alt = "Foto da Lasanha Bolonhesa em Destaque"; // Altera o texto alternativo
 
-
 // 7. MANIPULAÇÃO DE ESTILO - MÉTODO "CRU" (.style) (Slide 13)
 // ONDE USAR: Mudanças rápidas e pontuais que geram estilo inline no HTML.
 // NOTA: Propriedades CSS com hífen viram camelCase (ex: border-bottom -> borderBottom).
 tituloPrincipal.style.color = "#e67e22"; 
-tituloPrincipal.style.borderBottom = "3px solid #2c3e50";
+borderBottom = "3px solid #2c3e50";
 
 
 // 8. MANIPULAÇÃO DE ESTILO - MÉTODO PROFISSIONAL (.classList) (Slide 14)
@@ -71,3 +70,4 @@ tituloPrincipal.style.borderBottom = "3px solid #2c3e50";
 cardDestaque.classList.add('em-promocao');
 
 console.log("Manipulação DOM Aula 5: Concluída com sucesso!");
+

@@ -207,7 +207,7 @@ function adicionarItemAoResumo(nome, qtd, preco, cardOrigem) {
 
   // Passo 1: cria o <li>
   const itemLi = document.createElement("li");
-  itemLi.classList.add("item-resumo");
+  itemLi.classList.add("item-resumo");  
 
   // Passo 2: cria o <span> com o texto
   const textoSpan = document.createElement("span");

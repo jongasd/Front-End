@@ -1,18 +1,9 @@
-/* ==========================================================
-   PEDIDOS.JS — Lógica da página de Pedidos (pedidos.html)
-
-   ROADMAP DESTE ARQUIVO:
-   [✔] Aula 8  — Criado: adicionarItemAoResumo() e o botão Limpar
-                 migraram do aula7.js para cá e evoluíram.
-                 Em vez de criar itens na mesma página do cardápio,
-                 agora lemos do localStorage e exibimos em pedidos.html.
-   [ ] Futuro  — Substituir localStorage por chamadas à API (back-end)
-   ========================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
   renderizarPedidos();
   configurarLimparPedidos();
 });
+<<<<<<< Updated upstream:JAVASCRIPT/Aula_8-WEB_STORAGE/exemplos/techfood/src/scripts/pedidos.js
 
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -29,6 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
 //   Aqui soma as quantidades de todos os pedidos para o contador.
 //   Funciona como um forEach, mas devolve um único valor ao final.
 // ─────────────────────────────────────────────────────────────────────────────
+=======
+>>>>>>> Stashed changes:Aula_8-WEB_STORAGE/exemplos/techfood/src/scripts/pedidos.js
 function renderizarPedidos() {
   const lista        = document.querySelector("#lista-pedidos");
   const spanTotal    = document.querySelector("#valor-total");
@@ -36,16 +29,20 @@ function renderizarPedidos() {
   const spanContador = document.querySelector("#contador-itens");
 
   if (!lista) return;
-
-  // Padrão seguro: || "[]" evita JSON.parse(null) que lançaria erro
+  
   const pedidos = JSON.parse(localStorage.getItem("techfood_pedidos") || "[]");
 
   if (pedidos.length === 0) {
     lista.innerHTML =
       "<li class='pedido-vazio'>Nenhum pedido ainda. Acesse o " +
       "<a href='index.html'>Cardápio</a> para adicionar! 😊</li>";
+<<<<<<< Updated upstream:JAVASCRIPT/Aula_8-WEB_STORAGE/exemplos/techfood/src/scripts/pedidos.js
     if (spanTotal)    spanTotal.textContent    = "R$ 0,00";
     if (spanResumo)   spanResumo.textContent   = "R$ 0,00";
+=======
+    if (spanTotal) spanTotal.textContent = "R$ 0,00";
+    if (spanResumo) spanResumo.textContent = "R$ 0,00";
+>>>>>>> Stashed changes:Aula_8-WEB_STORAGE/exemplos/techfood/src/scripts/pedidos.js
     if (spanContador) spanContador.textContent = "0 itens";
     return;
   }
@@ -55,7 +52,10 @@ function renderizarPedidos() {
   let total = 0;
 
   pedidos.forEach(function (pedido, indice) {
+<<<<<<< Updated upstream:JAVASCRIPT/Aula_8-WEB_STORAGE/exemplos/techfood/src/scripts/pedidos.js
     // createElement + appendChild — Aula 7, mesmo padrão, nova página.
+=======
+>>>>>>> Stashed changes:Aula_8-WEB_STORAGE/exemplos/techfood/src/scripts/pedidos.js
     const li = document.createElement("li");
     li.classList.add("item-pedido");
 

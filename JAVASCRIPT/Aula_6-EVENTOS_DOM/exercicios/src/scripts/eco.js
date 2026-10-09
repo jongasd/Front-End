@@ -37,6 +37,7 @@ if (btnVideo && thumbnail) {
   });
 }
 
+
 // 3. EFEITOS VISUAIS NOS BOTÕES DE LEITURA (Eventos 'mouseover' / 'mouseout')
 const todosBotoes = document.querySelectorAll(".btn-leitura");
 
